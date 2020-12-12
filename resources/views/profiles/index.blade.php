@@ -11,8 +11,18 @@
         <div class="col-9 p-5">
             <div class="d-flex justify-content-between align-items-baseline">
                 <div><h1>{{ $user->username }}</h1></div>
-                <a href="/p/create">New Post</a>
+
+                {{-- Users can only add new posts on their own profile --}}
+                @can('update', $user->profile)
+                    <a href="/p/create">New Post</a>
+                @endcan
+
             </div>
+
+            {{-- Users can only edit their own profiles --}}
+            @can('update', $user->profile)
+                <a href="/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endcan
 
             <div class="d-flex">
                 <div class="pr-5"><strong>{{ $user->posts->count() }}</strong> posts</div>
@@ -26,10 +36,13 @@
         </div>
     </div>
 
+    {{-- Posts --}}
     <div class="row pt-5">
         @foreach($user->posts as $post)
         <div class="col-4 pb-4">
-            <img src="/storage/{{ $post->image }}" class="w-100"/>
+            <a href="/p/{{ $post->id }}">
+                <img src="/storage/{{ $post->image }}" class="w-100"/>
+            </a>
         </div>
         @endforeach
     </div>

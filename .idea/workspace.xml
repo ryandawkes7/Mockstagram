@@ -130,6 +130,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/intervention/image" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lVcJVxqckFVfS7zGpQvSj8DkRq" />
@@ -146,6 +147,7 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/profiles" />
+      <recent name="$PROJECT_DIR$/resources/views/posts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/posts" />
@@ -166,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607685630397</updated>
-      <workItem from="1607685633483" duration="13933000" />
+      <workItem from="1607685633483" duration="17650000" />
     </task>
     <servers />
   </component>
@@ -174,15 +176,19 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607813016807">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="458" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900/-1920.-83.1920.1080@0.0.1440.900" timestamp="1607813016807" />
     <state x="385" y="192" key="run.anything.popup" timestamp="1607782428201">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="385" y="192" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1607781456565" />
     <state x="385" y="192" key="run.anything.popup/0.23.1440.877@0.23.1440.877" timestamp="1607782428201" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607808986021">
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1607813377955">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-60.1920.1057@0.0.1440.900" timestamp="1607808986021" />
-    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-83.1920.1080@0.0.1440.900" timestamp="1607795264916" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/-1920.-83.1920.1080@0.0.1440.900" timestamp="1607813377955" />
   </component>
 </project>

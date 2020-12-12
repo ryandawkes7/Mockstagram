@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 // Controller for making posts from a user account
 class PostsController extends Controller
@@ -27,6 +28,10 @@ class PostsController extends Controller
         // Return file path
         $imagePath = request('image')->store('uploads', 'public');
 
+        // Resize image
+        $image = Image::make(public_path("storage/{$imagePath}"))->fit(1200,1200);
+        $image->save();
+
         // Get authenticated user and create a post (relationship between authenticated user and user's post)
         auth()->user()->posts()->create([
             'caption' => $data['caption'],
@@ -35,7 +40,9 @@ class PostsController extends Controller
 
         // Return to user profile after uploading
         return redirect('/profile/' . auth()->user()->id);
+    }
 
-        dd(request()->all());
+    public function show(\App\Models\Post $post) {
+        return view('posts.show', compact('post'));
     }
 }

@@ -4,17 +4,50 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
-    public function index($user)
+    public function index(User $user)
     {
-        // Get user model from App/Models/User
-        $user = User::findOrFail($user);
-
         // Display user details in view
-        return view('profiles.index', [
-            'user' => $user,
+        return view('profiles.index', compact('user'));
+    }
+
+    public function edit(User $user)
+    {
+        $this->authorize('update', $user->profile);
+
+        return view('profiles.edit', compact('user'));
+    }
+
+    public function update(User $user)
+    {
+        $this->authorize('update', $user->profile);
+
+        $data = request()->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'url' => 'url',
+            'image' => '',
         ]);
+
+
+        // Update image
+        if(request('image')) {
+            $imagePath = request('image')->store('profile', 'public');
+
+            // Resize image
+            $image = Image::make(public_path("storage/{$imagePath}"))->fit(1000,1000);
+            $image->save();
+        }
+
+        dd($data);
+        auth()->user()->profile->update(array_merge(
+            $data,
+            ['image' => $imagePath]
+        ));
+
+        return redirect("/profile/{$user->id}");
     }
 }
