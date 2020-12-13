@@ -56,7 +56,7 @@
 
                 {{-- Link --}}
                 <div class="form-group row">
-                    <label for="url" class="col-md-4 col-form-label">Description</label>
+                    <label for="url" class="col-md-4 col-form-label">Website</label>
 
                     <input
                         id="url" type="text"
