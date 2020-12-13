@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -11,6 +12,18 @@ class PostsController extends Controller
     // Enables authorisation for every route in this file - redirected to login page if user isn't signed in
     public function __construct() {
         $this->middleware('auth');
+    }
+
+    // Retrieve all posts from user's followed for home screen
+    public function index()
+    {
+        // Grab all users that the user is following
+        $users = auth()->user()->following()->pluck('profiles.user_id');
+
+        // Fetch all posts from users followed
+        $posts = Post::whereIn('user_id', $users)->with('user')->latest()->paginate(5);
+
+        return view('posts.index', compact('posts'));
     }
 
     public function create() {
